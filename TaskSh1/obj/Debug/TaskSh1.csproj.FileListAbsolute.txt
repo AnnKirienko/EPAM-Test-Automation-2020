@@ -1,0 +1,6 @@
+E:\Прога\TaskSh1\TaskSh1\bin\Debug\TaskSh1.exe.config
+E:\Прога\TaskSh1\TaskSh1\bin\Debug\TaskSh1.exe
+E:\Прога\TaskSh1\TaskSh1\bin\Debug\TaskSh1.pdb
+E:\Прога\TaskSh1\TaskSh1\obj\Debug\TaskSh1.csprojResolveAssemblyReference.cache
+E:\Прога\TaskSh1\TaskSh1\obj\Debug\TaskSh1.exe
+E:\Прога\TaskSh1\TaskSh1\obj\Debug\TaskSh1.pdb
