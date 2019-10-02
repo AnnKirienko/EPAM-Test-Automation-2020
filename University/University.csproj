@@ -41,22 +41,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Persons\Accountant.cs" />
     <Compile Include="Adress.cs" />
-    <Compile Include="Dekan.cs" />
-    <Compile Include="Departament.cs" />
-    <Compile Include="Faculty.cs" />
-    <Compile Include="Head.cs" />
-    <Compile Include="Institute.cs" />
-    <Compile Include="Manager.cs" />
-    <Compile Include="Person.cs" />
+    <Compile Include="Persons\Dekan.cs" />
+    <Compile Include="Establishments\Departament.cs" />
+    <Compile Include="Persons\Employee.cs" />
+    <Compile Include="Establishments\Faculty.cs" />
+    <Compile Include="Persons\Head.cs" />
+    <Compile Include="Establishments\Institute.cs" />
+    <Compile Include="Persons\Manager.cs" />
+    <Compile Include="Persons\Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Staff.cs" />
+    <Compile Include="Establishments\Staff.cs" />
+    <Compile Include="Persons\Student.cs" />
     <Compile Include="University.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

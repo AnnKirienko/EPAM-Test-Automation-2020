@@ -10,11 +10,14 @@ namespace University
     {
        Manager manager;
 
-       public Institute (string name, Adress adr, Manager man ) 
+       public Institute (string name, Adress adr, Manager man ) : base(name, adr)
        {
-            nameDepartaments = name;
-            adress = adr;
             manager = man;
+       }
+
+       public override string ToString()
+       {
+           return base.ToString() + " " + manager;
        }
     }
 }

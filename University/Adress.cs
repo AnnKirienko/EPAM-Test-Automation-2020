@@ -2,11 +2,11 @@
 
 namespace University
 {
-    class Adress
+   public class Adress
     {
-       public string cityAdr;
-       public string streetAdr;
-       public string buildingAdr;
+        string cityAdr;
+        string streetAdr;
+        string buildingAdr;
 
         public Adress (string cA, string sA, string bA ) 
        {
@@ -16,15 +16,9 @@ namespace University
        }
 
 
-       public string GetAdress(string city, string street, string building)
+       public override string ToString()
        {
-           string fullAdress = cityAdr + streetAdr + cityAdr;
-           cityAdr = city;
-           streetAdr = street;
-           buildingAdr = building;
-           cityAdr = city;
-           return (fullAdress);
-           
+           return this.cityAdr + this.streetAdr + this.buildingAdr;
        }
 
 
