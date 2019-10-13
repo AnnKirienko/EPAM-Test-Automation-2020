@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<faculties>
+  <faculty>
+    <name>BIO</name>
+    <universityName>BSU</universityName>
+    <adressID>2</adressID>
+    <unID>1</unID>
+    <facultID>1</facultID>
+  </faculty>
+  <faculty>
+    <name>FRFKT</name>
+    <universityName>BSU</universityName>
+    <adressID>3</adressID>
+    <unID>1</unID>
+    <facultID>2</facultID>
+  </faculty>
+  <faculty>
+    <name>MMF</name>
+    <universityName>BSU</universityName>
+    <adressID>4</adressID>
+    <unID>1</unID>
+    <facultID>3</facultID>
+  </faculty>
+  <faculty>
+    <name></name>
+    <universityName></universityName>
+    <adressID></adressID>
+    <unID></unID>
+    <facultID></facultID>
+  </faculty>
+</faculties>

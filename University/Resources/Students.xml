@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<students >
+  <student>
+    <firstName>Biba</firstName>
+    <secondName>Pupkin</secondName>
+    <yearOfBirth>20</yearOfBirth>
+    <marks>4 4 5</marks>
+    <faculty>FRFKT</faculty>
+    <facultID>2</facultID>
+  </student>
+  <student>
+    <firstName>Boba</firstName>
+    <secondName>Pupkin</secondName>
+    <yearOfBirth>20</yearOfBirth>
+    <marks>10 4 6</marks>
+    <faculty>FRFKT</faculty>
+    <facultID>2</facultID>
+  </student>
+  <student>
+    <firstName>Boba</firstName>
+    <secondName>Pupkin</secondName>
+    <yearOfBirth>20</yearOfBirth>
+    <marks>10 4 6</marks>
+    <faculty>FRFKT</faculty>
+    <facultID>2</facultID>
+  </student>
+</students>

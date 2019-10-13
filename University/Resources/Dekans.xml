@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<dekans>
+  <dekan>
+    <firstName>Ivanov</firstName>
+    <secondName>Nicolay</secondName>
+    <yearOfBirth>45</yearOfBirth>
+    <degree>PhD</degree>
+    <faculty>FRFKT</faculty>
+    <facultID>2</facultID>
+  </dekan>
+  <dekan>
+    <firstName>Kovalev</firstName>
+    <secondName>Victor</secondName>
+    <yearOfBirth>54</yearOfBirth>
+    <degree>Professor</degree>
+    <faculty>BIO</faculty>
+    <facultID>1</facultID>
+  </dekan>
+  <dekan>
+    <firstName>Antonenko</firstName>
+    <secondName>Mihail</secondName>
+    <yearOfBirth>61</yearOfBirth>
+    <degree>PhD</degree>
+    <faculty>MMF</faculty>
+    <facultID>3</facultID>
+  </dekan>
+</dekans>

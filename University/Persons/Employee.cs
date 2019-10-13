@@ -10,8 +10,7 @@ namespace University
     {
         int salary;
 
-        public Employee(string name1, string name2, int year, int salary)
-            : base(name1, name2, year)
+        public Employee(string name1, string name2, int year, string departament, int salary) : base(name1, name2, departament, year)
         {
             this.salary = salary;
         }

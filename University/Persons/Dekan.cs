@@ -6,7 +6,7 @@ namespace University
     {
         string degree;
 
-        public Dekan (string name1, string name2, int year, string degr) : base(name1, name2, year)
+        public Dekan (string name1, string name2, int year, string departament, string degr) : base(name1, name2, departament, year)
         {
             degree = degr;
         }

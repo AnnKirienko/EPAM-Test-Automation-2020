@@ -7,7 +7,7 @@ namespace University
     {
         int experience;
 
-        public Head (string name1, string name2, int year, int exp) : base(name1, name2, year)
+        public Head (string name1, string name2,string departament, int year, int exp) : base(name1, name2, departament, year)
         {
             experience = exp;
         }

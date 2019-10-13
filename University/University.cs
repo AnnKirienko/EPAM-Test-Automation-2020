@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace University
 {
@@ -6,7 +7,8 @@ namespace University
     {
        string nameUniversity;
        Adress adressUniversity; 
-       Departament[] arrayDepartaments  = new Departament [10];
+       //Departament[] arrayDepartaments  = new Departament [10];
+       List<Departament> listDepartament = new List<Departament>();
 
       public  University(string name, Adress adr)
       {
@@ -14,16 +16,14 @@ namespace University
            adressUniversity = adr;
        }
 
-       int count = 0;
+      
 
        bool CanBeAdded(Departament departament)
        {
-         
-           for (int i = 0; i < arrayDepartaments.Length; i++)
-           {
-               Departament element = arrayDepartaments[i];
 
-               if (element!= null && element.Equals(departament))
+           foreach (Departament dptr in listDepartament)
+           {
+               if (dptr != null && dptr.Equals(departament))
                {
                    return false;
                }
@@ -33,10 +33,9 @@ namespace University
 
        public bool AddDepartament(Departament departament )
        {
-           if ((count < 10) && this.CanBeAdded(departament))
+           if ((listDepartament.Count < 10) && this.CanBeAdded(departament))
            {
-               arrayDepartaments[count] = departament;
-               count++;
+               listDepartament.Add(departament);
                Console.WriteLine ("Adding " + departament); 
                return true;
            }
@@ -44,10 +43,11 @@ namespace University
            
        }
 
-       public override string ToString()
+      
+        public override string ToString()
        {
            string departamentStr = "";
-           foreach (Departament departament in arrayDepartaments)
+           foreach (Departament departament in listDepartament)
                departamentStr += (" " + departament);
 
            return nameUniversity + " " + adressUniversity + " " + departamentStr;

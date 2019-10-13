@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<accountats>
+  <accountat>
+    <firstName>John</firstName>
+    <secondName>Snow</secondName>
+    <yearOfBirth>23</yearOfBirth>
+    <position>head</position>
+    <staff>Accountantcy</staff>
+    <staffID>3</staffID>
+  </accountat>
+  <accountat>
+    <firstName>Deynerys</firstName>
+    <secondName>Targarien</secondName>
+    <yearOfBirth>18</yearOfBirth>
+    <position>employee</position>
+    <staff>Accountantcy</staff>
+    <staffID>3</staffID>
+  </accountat>
+  <accountat>
+    <firstName>Tirion</firstName>
+    <secondName>Lannister</secondName>
+    <yearOfBirth>39</yearOfBirth>
+    <position>Master over monet</position>
+    <staff>Accountantcy</staff>
+    <staffID>3</staffID>
+  </accountat>
+  </accountats >

@@ -1,39 +1,43 @@
 ﻿using System;
+using System.Collections.Generic;
+
 
 namespace University 
 {
     public class Faculty : Departament
     {
         Dekan dekan;
-        Student [] arrayStudents = new Student[2];
+        //Student [] arrayStudents = new Student[2];
+        List<Student> listStudents  = new List<Student> ();
 
-        public Faculty(string name, Adress adr, Dekan dek) : base(name, adr) 
+        public Faculty(string name, Adress adr, string universityName, Dekan dek) : base(name, adr,universityName) 
       
         {
           dekan = dek;
         }
+
+        public Faculty()
+        { }
 
         
 
         public override string ToString()
         {
             string studentStr = "";
-            foreach (Student student in arrayStudents)
+            foreach (Student student in listStudents)
                 studentStr += (" " + student);
 
             return base.ToString() + " " + dekan + " " + studentStr;
         }
 
-        int count = 0;
+        
 
         bool CanBeAdded(Student student)
         {
-
-            for (int i = 0; i < arrayStudents.Length; i++)
+            foreach (Student stud in listStudents)
+            
             {
-                Student element = arrayStudents[i];
-
-                if (element != null && element.Equals(student))
+                if (stud != null && stud.Equals(student))
                 {
                     return false;
                 }
@@ -43,10 +47,9 @@ namespace University
 
         public bool AddStudent(Student student)
         {
-            if ((count < 2) && this.CanBeAdded(student))
+            if ((listStudents.Count < 2) && this.CanBeAdded(student))
             {
-                arrayStudents[count] = student;
-                count++;
+                listStudents.Add(student);
                 Console.WriteLine("Adding " + student);
                 return true;
             }

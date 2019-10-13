@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<staffes>
+  <staff>
+  <name>Security</name>
+  <universityName>BSU</universityName>
+  <adressID>7</adressID>
+  <unID>1</unID>
+    <staffID>1</staffID>
+  </staff>
+  <staff>
+    <name>Rectoracy</name>
+    <universityName>BSU</universityName>
+    <adressID>8</adressID>
+    <unID>1</unID>
+    <staffID>2</staffID>
+  </staff>
+  <staff>
+    <name>Accountantcy</name>
+    <universityName>BSU</universityName>
+    <adressID>9</adressID>
+    <unID>1</unID>
+    <staffID>3</staffID>
+  </staff>
+  <staff>
+    <name>Service</name>
+    <universityName>BSU</universityName>
+    <adressID>9</adressID>
+    <unID>1</unID>
+    <staffID>4</staffID>
+  </staff>
+</staffes>

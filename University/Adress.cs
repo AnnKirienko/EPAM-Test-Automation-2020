@@ -14,11 +14,11 @@ namespace University
            streetAdr = sA;
            buildingAdr = bA;
        }
-
+    
 
        public override string ToString()
        {
-           return this.cityAdr + this.streetAdr + this.buildingAdr;
+           return this.cityAdr + ", " + this.streetAdr + ", " + this.buildingAdr;
        }
 
 

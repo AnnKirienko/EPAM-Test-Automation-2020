@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<cars>
+  <car>
+  <name>VAZ-132</name>
+    <year>1982</year>
+    <fuel>DT</fuel>
+  <autoID>1</autoID>
+</car>
+  <car>
+    <name>Geely</name>
+    <year>2018</year>
+    <fuel>Electrichestvo</fuel>
+    <autoID>1</autoID>
+  </car>
+  </cars>
+    

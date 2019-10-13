@@ -1,21 +1,29 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Xml.Serialization;
 
 
 namespace University
 {
     public class Person
     {
+       
         string firstName;
         string secondName;
-        int yearOfBirth;
+        string deprtament;
+       int yearOfBirth;
 
         // create construct with parametres
-        public Person(string firstName,string secondName,int yearOfBirth) 
+       public Person(string firstName, string secondName, string departament, int yearOfBirth) 
         {
             this.yearOfBirth = yearOfBirth;
             this.firstName = firstName;
+            this.deprtament = departament;
             this.secondName = secondName;
         }
+
+        public Person()
+        { }
 
         public override bool Equals(object obj)
         {
@@ -26,7 +34,9 @@ namespace University
        
         public override string ToString()
         {
-            return firstName + " " + secondName + " " + yearOfBirth;
+            return firstName + " " + secondName + " " + yearOfBirth + " " + deprtament;
         }
+
+      
     }
 }

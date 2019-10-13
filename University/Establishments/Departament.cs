@@ -6,15 +6,17 @@ namespace University
     {
        string nameDepartament;
        Adress adress;
+       string universityName;
 
        public Departament()
        {
        }
 
-       public Departament(string nameDepartament, Adress adress)
+       public Departament(string nameDepartament, Adress adress, string universityName)
        {
            this.adress =  adress;
            this.nameDepartament = nameDepartament;
+           this.universityName = universityName;;
 
        }
 
