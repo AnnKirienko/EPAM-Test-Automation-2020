@@ -45,6 +45,20 @@
   <ItemGroup>
     <Compile Include="Adress.cs" />
     <Compile Include="Car.cs" />
+    <Compile Include="DBObjects\DBAccountant.cs" />
+    <Compile Include="DBObjects\DBAdresscs.cs" />
+    <Compile Include="DBObjects\DBAutocade.cs" />
+    <Compile Include="DBObjects\DBCar.cs" />
+    <Compile Include="DBObjects\DBDekan.cs" />
+    <Compile Include="DBObjects\DBEmployee.cs" />
+    <Compile Include="DBObjects\DBFaculty.cs" />
+    <Compile Include="DBObjects\DBGarage.cs" />
+    <Compile Include="DBObjects\DBHead.cs" />
+    <Compile Include="DBObjects\DBInstitute.cs" />
+    <Compile Include="DBObjects\DBManager.cs" />
+    <Compile Include="DBObjects\DBStaff.cs" />
+    <Compile Include="DBObjects\DBStudent.cs" />
+    <Compile Include="DBObjects\DBUniversity.cs" />
     <Compile Include="IDBProvider.cs" />
     <Compile Include="Establishments\Autocade.cs" />
     <Compile Include="Establishments\Departament.cs" />
@@ -53,7 +67,6 @@
     <Compile Include="Establishments\Staff.cs" />
     <Compile Include="Garage.cs" />
     <Compile Include="UniversityCreator.cs" />
-    <Compile Include="Parsers\AdressParser.cs" />
     <Compile Include="Persons\Accountant.cs" />
     <Compile Include="Persons\Dekan.cs" />
     <Compile Include="Persons\Employee.cs" />

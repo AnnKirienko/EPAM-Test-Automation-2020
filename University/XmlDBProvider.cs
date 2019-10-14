@@ -71,13 +71,15 @@ namespace University
 
            public List<Student> GetStudentsByID(string ID)
             {
-                List<Dictionary<string, string>> parsedStudents = ReadFromXml(studentsFilename, "student", new List<string> { "firstName", "secondName", "yearOfBirth", "marks", "faculty", "facultID" });
+                List<Dictionary<string, string>> parsedStudents = ReadFromXml(studentsFilename, "student", new List<string> { "firstName", "secondName", "yearOfBirth", "marks", 
+                    "faculty", "facultID" });
                 List<Student> students = new List<Student>();
 
                 foreach (Dictionary<string, string> studentValues in parsedStudents)
                 {
                     if (ID.Equals(studentValues["facultID"]))
-                    students.Add(new Student(studentValues["firstName"], studentValues["secondName"], int.Parse(studentValues["yearOfBirth"]), studentValues["faculty"], Array.ConvertAll(studentValues["marks"].Split(' '), int.Parse).ToList()));
+                    students.Add(new Student(studentValues["firstName"], studentValues["secondName"], int.Parse(studentValues["yearOfBirth"]),
+                        studentValues["faculty"], Array.ConvertAll(studentValues["marks"].Split(' '), int.Parse).ToList()));
                 }
 
                 return students;

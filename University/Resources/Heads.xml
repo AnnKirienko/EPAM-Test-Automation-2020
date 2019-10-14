@@ -1,1 +1,43 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<heads>
+  <head>
+    <firstName>Ostapenko</firstName>
+    <secondName>Nikolay</secondName>
+    <yearOfBirth>45</yearOfBirth>
+    <experience>15</experience>
+    <departament>Security</departament>
+    <staffID>1</staffID>
+  </head>
+  <head>
+    <firstName>Gromova</firstName>
+    <secondName>Nadezhda</secondName>
+    <yearOfBirth>62</yearOfBirth>
+    <experience>30</experience>
+    <departament>Rectoracy</departament>
+    <staffID>2</staffID>
+  </head>
+  <head>
+    <firstName>Manilov</firstName>
+    <secondName>Alexandr</secondName>
+    <yearOfBirth>54</yearOfBirth>
+    <experience>21</experience>
+    <departament>Accountantcy</departament>
+    <staffID>1</staffID>
+  </head>
+  <head>
+    <firstName>Sorochenko</firstName>
+    <secondName>Andrey</secondName>
+    <yearOfBirth>46</yearOfBirth>
+    <experience>17</experience>
+    <departament>Service</departament>
+    <staffID>1</staffID>
+  </head>
+  <head>
+    <firstName>Markov</firstName>
+    <secondName>Ivan</secondName>
+    <yearOfBirth>45</yearOfBirth>
+    <experience>15</experience>
+    <departament>Autopark</departament>
+    <autoID>1</autoID>
+  </head>
+</heads>
