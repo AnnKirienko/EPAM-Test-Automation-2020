@@ -46,7 +46,7 @@
     <Compile Include="Adress.cs" />
     <Compile Include="Car.cs" />
     <Compile Include="DBObjects\DBAccountant.cs" />
-    <Compile Include="DBObjects\DBAdresscs.cs" />
+    <Compile Include="DBObjects\DBAdress.cs" />
     <Compile Include="DBObjects\DBAutocade.cs" />
     <Compile Include="DBObjects\DBCar.cs" />
     <Compile Include="DBObjects\DBDekan.cs" />
@@ -66,6 +66,7 @@
     <Compile Include="Establishments\Institute.cs" />
     <Compile Include="Establishments\Staff.cs" />
     <Compile Include="Garage.cs" />
+    <Compile Include="ObjectConverter.cs" />
     <Compile Include="UniversityCreator.cs" />
     <Compile Include="Persons\Accountant.cs" />
     <Compile Include="Persons\Dekan.cs" />

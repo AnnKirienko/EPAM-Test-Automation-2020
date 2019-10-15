@@ -14,8 +14,7 @@ namespace University
             this.marks = marks;
         }
 
-        public Student()
-        { }
+        
 
         public override string ToString()
         {

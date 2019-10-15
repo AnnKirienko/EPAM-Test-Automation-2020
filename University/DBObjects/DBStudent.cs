@@ -7,11 +7,11 @@ namespace University
 {
    public class DBStudent
     {
-        string FirstName { get; set; }
-        string SecondName { get; set; }
-        string Deprtament { get; set; }
-        int YearOfBirth { get; set; }
-        string Marks { get; set; }
-        int FacultyID { get; set; }
+       public string FirstName { get; set; }
+       public string SecondName { get; set; }
+       public string Departament { get; set; }
+       public int YearOfBirth { get; set; }
+       public string Marks { get; set; }
+       public int FacultyID { get; set; }
     }
 }

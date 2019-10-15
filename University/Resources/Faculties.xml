@@ -21,11 +21,5 @@
     <unID>1</unID>
     <facultID>3</facultID>
   </faculty>
-  <faculty>
-    <name></name>
-    <universityName></universityName>
-    <adressID></adressID>
-    <unID></unID>
-    <facultID></facultID>
-  </faculty>
+  
 </faculties>

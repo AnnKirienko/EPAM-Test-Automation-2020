@@ -22,9 +22,9 @@ namespace University
         // List<Staff> GetStaffes();
 
 
-        List<Car> GetCars();
+      //  List<Car> GetCars();
 
-        List<Garage> GetGarages();
+      //  List<Garage> GetGarages();
 
         //  List<Accountant> GetAccountants();
 

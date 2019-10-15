@@ -5,12 +5,13 @@ using System.Text;
 
 namespace University
 {
-    class DBFaculty
+   public class DBFaculty
     {
-        int FacultyID { get; set; }
-        int AdressID { get; set; }
-        string NameDepartament { get; set; }
-        string UniversityName { get; set; }
+       public int FacultyID { get; set; }
+       public int AdressID { get; set; }
+       public string NameDepartament { get; set; }
+       public string UniversityName { get; set; }
+       public int UniversityID { get; set; }
        
     }
 }
