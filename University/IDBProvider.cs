@@ -13,22 +13,24 @@ namespace University
        
          List<Faculty> GetFaculties();
 
+        void SaveStudent(Student student, string facultID);
+
 
        //  List<Autocade> GetAutocades();
 
 
-      //  List<Institute> GetInstitutes();
+        //  List<Institute> GetInstitutes();
 
         // List<Staff> GetStaffes();
 
 
-      //  List<Car> GetCars();
+        //  List<Car> GetCars();
 
-      //  List<Garage> GetGarages();
+        //  List<Garage> GetGarages();
 
         //  List<Accountant> GetAccountants();
 
-         List<Dekan> GetDekans();
+        List<Dekan> GetDekans();
 
          // List<Employee> GetEmployees();
 

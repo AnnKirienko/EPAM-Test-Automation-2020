@@ -67,6 +67,7 @@
     <Compile Include="Establishments\Staff.cs" />
     <Compile Include="Garage.cs" />
     <Compile Include="ObjectConverter.cs" />
+    <Compile Include="StudentComparer.cs" />
     <Compile Include="UniversityCreator.cs" />
     <Compile Include="Persons\Accountant.cs" />
     <Compile Include="Persons\Dekan.cs" />

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Xml.Linq;
+using System.Xml.Serialization;
 
 namespace University
 {
@@ -27,7 +29,7 @@ namespace University
         const string universitiesFilename = "Universities.xml";
         const string filesLocationPrefix = "..\\..\\Resources\\";
 
-        ObjectConverter converter = new ObjectConverter();
+        private ObjectConverter converter = new ObjectConverter();
 
         public XmlDBProvider()
         { 
@@ -40,20 +42,12 @@ namespace University
 
         private List<DBStudent> LoadStudents()
         {
-            XDocument xdoc = XDocument.Load(filesLocationPrefix + studentsFilename);
-            List<DBStudent> students = new List<DBStudent>(from stud in xdoc.Element("students").Elements("student")
-                                                           select new DBStudent
-                                                            {
-                                                                FirstName = stud.Element("firstName").Value,
-                                                                SecondName = stud.Element("secondName").Value,
-                                                                Departament = stud.Element("faculty").Value,
-                                                                YearOfBirth = int.Parse(stud.Element("yearOfBirth").Value),
-                                                                Marks = stud.Element("marks").Value,
-                                                                FacultyID = int.Parse(stud.Element("facultID").Value)
+            using (StreamReader reader = new StreamReader(filesLocationPrefix + studentsFilename, Encoding.Unicode))
+            {
+                XmlSerializer ser = new XmlSerializer(typeof(List<DBStudent>), new XmlRootAttribute("students"));
 
-
-                                                            });
-            return students;
+                return (List<DBStudent>)ser.Deserialize(reader);
+            }
         }
 
         List<DBStudent> dbSt = new List<DBStudent>();
@@ -149,15 +143,27 @@ namespace University
             {
                 students.Add(converter.Convert(stud));
             }
+            students.Sort(new StudentComparer());
             
             return students;
         }
 
-        private List<DBStudent> GetStudentsByFacultyID(int ID)
+        private List<DBStudent> GetStudentsByFacultyID(string ID)
         {
              return new List<DBStudent> (from stud in dbSt
                                 where stud.FacultyID == ID
                                 select stud);
+        }
+
+        public void SaveStudent(Student student, string facultID)
+        {
+            dbSt.Add(converter.Convert(student, facultID));
+            using (FileStream streamer = new FileStream(filesLocationPrefix + studentsFilename, FileMode.Open))
+            {
+                XmlSerializer ser = new XmlSerializer(typeof(List<DBStudent>), new XmlRootAttribute("students"));
+                ser.Serialize(streamer, dbSt);
+            }
+            
         }
 
 
@@ -194,7 +200,7 @@ namespace University
                 Faculty faculty = new Faculty(facult.NameDepartament, converter.Convert(GetAdressesByID(facult.AdressID)),
                     facult.UniversityName, converter.Convert(GetDekanByFacultyID(facult.FacultyID)));
                 
-                foreach (DBStudent st in GetStudentsByFacultyID(facult.FacultyID))
+                foreach (DBStudent st in GetStudentsByFacultyID(facult.FacultyID.ToString()))
                 {
                     faculty.AddStudent(converter.Convert(st));
                 }

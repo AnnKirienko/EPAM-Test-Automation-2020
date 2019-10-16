@@ -7,7 +7,11 @@ namespace University
 {
     public class UniversityCreator
     {
-        
+        public University GetUniversity()
+        {
+
+            return null;
+        }
 
     }
 }

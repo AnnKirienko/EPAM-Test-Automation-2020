@@ -5,16 +5,30 @@ using System.Xml.Serialization;
 
 namespace University
 {
+    
     public class Person
     {
        
         string firstName;
         string secondName;
         string deprtament;
-       int yearOfBirth;
+        int yearOfBirth;
+
+       
+        
+        public string SecondName { get { return secondName; } set { secondName = value; } }
+
+       
+        public string FirstName { get { return firstName; } set { firstName = value; } }
+
+       
+        public string Departament { get {return deprtament; } set {deprtament = value; } }
+
+       
+        public int YearOfBirth { get {return yearOfBirth; } set {yearOfBirth = value; } }
 
         // create construct with parametres
-       public Person(string firstName, string secondName, string departament, int yearOfBirth) 
+        public Person(string firstName, string secondName, string departament, int yearOfBirth) 
         {
             this.yearOfBirth = yearOfBirth;
             this.firstName = firstName;
