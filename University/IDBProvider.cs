@@ -37,9 +37,9 @@ namespace University
          //List<Head> GetHeads();
          //List<Manager> GetManagers();
           List<Student> GetStudents();
-      
-//       //public List<> Get()
-//       //{}
+
+         List<University> GetUniversities();
+       
 
 //       //public List<> Get()
 //       //{}

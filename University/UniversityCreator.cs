@@ -7,10 +7,12 @@ namespace University
 {
     public class UniversityCreator
     {
-        public University GetUniversity()
-        {
+        IDBProvider prov = new XmlDBProvider();
 
-            return null;
+        public List <University> GetUniversities()
+        {
+           
+            return prov.GetUniversities();
         }
 
     }

@@ -2,16 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace University
 {
-   public class DBFaculty
+    [XmlType("faculty")]
+    public class DBFaculty
     {
-       public int FacultyID { get; set; }
-       public int AdressID { get; set; }
-       public string NameDepartament { get; set; }
-       public string UniversityName { get; set; }
-       public int UniversityID { get; set; }
+        [XmlElement("facultID")]
+        public int FacultyID { get; set; }
+        [XmlElement("adressID")]
+        public int AdressID { get; set; }
+        [XmlElement("name")]
+        public string NameDepartament { get; set; }
+        [XmlElement("universityName")]
+        public string UniversityName { get; set; }
+        [XmlElement("unID")]
+        public int UniversityID { get; set; }
        
     }
 }

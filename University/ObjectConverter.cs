@@ -36,5 +36,10 @@ namespace University
            return new Dekan(dbDekan.FirstName, dbDekan.SecondName, dbDekan.YearOfBirth, dbDekan.Departament, dbDekan.Degree);
        }
 
+        public Faculty Convert(DBFaculty dbFaculty, Adress adr, Dekan dek)
+        {
+            return new Faculty(dbFaculty.NameDepartament, adr, dbFaculty.UniversityName, dek); 
+        }
+
     }
 }
