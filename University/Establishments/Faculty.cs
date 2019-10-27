@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 
@@ -9,6 +10,12 @@ namespace University
         Dekan dekan;
         //Student [] arrayStudents = new Student[2];
         List<Student> listStudents  = new List<Student> ();
+
+        public Dekan Dekan { get => dekan; set => dekan = value; }
+        public List<Student> ListStudents { get => listStudents; set => listStudents = value; }
+
+        public delegate void StudAdded(string message);
+        public event StudAdded Notification;
 
         public Faculty(string name, Adress adr, string universityName, Dekan dek) : base(name, adr,universityName) 
       
@@ -50,10 +57,14 @@ namespace University
             if ((listStudents.Count < 2) && this.CanBeAdded(student))
             {
                 listStudents.Add(student);
+                
+                Notification?.Invoke("Student was added");
                 Console.WriteLine("Adding " + student);
                 return true;
             }
             return false;
+
+            
 
         }
 

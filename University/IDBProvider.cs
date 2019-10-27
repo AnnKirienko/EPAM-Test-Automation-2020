@@ -7,13 +7,13 @@ namespace University
 {
    interface IDBProvider
     {
-        List<Adress> GetAdresses();
+        Adress GetAdress (string nameUniversity);
 
      //   List<Departament> GetDepartaments();
        
-         List<Faculty> GetFaculties();
+         List<Faculty> GetFaculties(string nameUniversity);
 
-        void SaveStudent(Student student, string facultID);
+        //void SaveStudent(Student student, string facultID);
 
 
        //  List<Autocade> GetAutocades();

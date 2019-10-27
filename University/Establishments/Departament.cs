@@ -16,13 +16,21 @@ namespace University
        {
            this.adress =  adress;
            this.nameDepartament = nameDepartament;
-           this.universityName = universityName;;
+           this.universityName = universityName;
 
        }
 
-       public override bool Equals(object obj)
+        public string NameDepartament { get => nameDepartament; set => nameDepartament = value; }
+        public Adress Adress { get => adress; set => adress = value; }
+        public string UniversityName { get => universityName; set => universityName = value; }
+
+        public override bool Equals(object obj)
        {
-           return (nameDepartament == (obj as Departament).nameDepartament) && adress.Equals((obj as Departament).adress);           
+            if ((obj == null)||!this.GetType().Equals(obj.GetType())) {
+                return false;
+            }
+
+            return (nameDepartament == (obj as Departament).nameDepartament) && adress.Equals((obj as Departament).adress);           
        }
 
        public override string ToString()

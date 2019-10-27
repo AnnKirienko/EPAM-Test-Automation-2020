@@ -12,7 +12,7 @@ namespace University
     {
         private XmlReader reader = new XmlReader();
 
-        
+
         const string adressesFilename = "Adress.xml";
         const string accountantsFilename = "Accountants.xml";
         const string autocadesFilename = "Autocades.xml";
@@ -29,10 +29,8 @@ namespace University
         const string universitiesFilename = "Universities.xml";
         const string filesLocationPrefix = "..\\..\\Resources\\";
 
-        private ObjectConverter converter = new ObjectConverter();
-
         public XmlDBProvider()
-        { 
+        {
             dbSt = LoadStudents();
             dbAd = LoadAdress();
             dbDek = LoadDekans();
@@ -68,13 +66,13 @@ namespace University
             XDocument xdoc = XDocument.Load(filesLocationPrefix + adressesFilename);
             List<DBAdress> adress = new List<DBAdress>(from adr in xdoc.Element("adresses").Elements("adress")
                                                        select new DBAdress
-                                                           {
-                                                               CityAdr = adr.Element("cityAdr").Value,
-                                                               StreetAdr = adr.Element("streetAdr").Value,
-                                                               BuildingAdr = adr.Element("buildingAdr").Value,
-                                                               AdressID = int.Parse(adr.Element("adressID").Value)
+                                                       {
+                                                           CityAdr = adr.Element("cityAdr").Value,
+                                                           StreetAdr = adr.Element("streetAdr").Value,
+                                                           BuildingAdr = adr.Element("buildingAdr").Value,
+                                                           AdressID = int.Parse(adr.Element("adressID").Value)
 
-                                                           });
+                                                       });
             return adress;
         }
 
@@ -84,17 +82,17 @@ namespace University
         {
             XDocument xdoc = XDocument.Load(filesLocationPrefix + dekansFilename);
             List<DBDekan> dekans = new List<DBDekan>(from dek in xdoc.Element("dekans").Elements("dekan")
-                                                       select new DBDekan
-                                                           {
-                                                               FirstName = dek.Element("firstName").Value,
-                                                               SecondName = dek.Element("secondName").Value,
-                                                               Departament = dek.Element("faculty").Value,
-                                                               YearOfBirth = int.Parse(dek.Element("yearOfBirth").Value),
-                                                               Degree = dek.Element("degree").Value,
-                                                               FacultyID = int.Parse(dek.Element("facultID").Value)
+                                                     select new DBDekan
+                                                     {
+                                                         FirstName = dek.Element("firstName").Value,
+                                                         SecondName = dek.Element("secondName").Value,
+                                                         Departament = dek.Element("faculty").Value,
+                                                         YearOfBirth = int.Parse(dek.Element("yearOfBirth").Value),
+                                                         Degree = dek.Element("degree").Value,
+                                                         FacultyID = int.Parse(dek.Element("facultID").Value)
 
 
-                                                           });
+                                                     });
             return dekans;
         }
 
@@ -104,108 +102,118 @@ namespace University
         {
             XDocument xdoc = XDocument.Load(filesLocationPrefix + facultiesFilename);
             List<DBFaculty> faculties = new List<DBFaculty>(from facult in xdoc.Element("faculties").Elements("faculty")
-                                                           select new DBFaculty
-                                                           {
-                                                               NameDepartament = facult.Element("name").Value,
-                                                               UniversityName = facult.Element("universityName").Value,
-                                                               AdressID = int.Parse(facult.Element("adressID").Value),
-                                                               FacultyID = int.Parse(facult.Element("facultID").Value),
-                                                               UniversityID = int.Parse(facult.Element("unID").Value)
+                                                            select new DBFaculty
+                                                            {
+                                                                NameDepartament = facult.Element("name").Value,
+                                                                UniversityName = facult.Element("universityName").Value,
+                                                                AdressID = int.Parse(facult.Element("adressID").Value),
+                                                                FacultyID = int.Parse(facult.Element("facultID").Value),
+                                                                UniversityID = int.Parse(facult.Element("unID").Value)
 
 
-                                                           });
+                                                            });
             return faculties;
         }
 
         List<DBFaculty> dbFc = new List<DBFaculty>();
 
-        public List<Adress> GetAdresses()
+        private string GetUniversityID(string nameUniv)
         {
-            List<Adress> adresses = new List<Adress>();
-
-            foreach (DBAdress adr in dbAd)
-            {
-                adresses.Add(converter.Convert(adr));
-            }
-
-            return adresses;
-
+            return (from univ in dbUn
+                    where univ.NameUniversity == nameUniv
+                    select univ.UnID).First();
         }
 
-        private DBAdress GetAdressesByID(int ID)
+        private string GetUniversityIDForAdress(string nameUniv)
+        {
+            return (from univ in dbUn
+                    where univ.NameUniversity == nameUniv
+                    select univ.AdressID).First();
+        }
+
+        private List<Adress> GetAdresses()
+        {
+            return (from DBAdress adr in dbAd
+                    select new Adress(adr.CityAdr, adr.StreetAdr, adr.BuildingAdr)).ToList();
+        }
+
+        public Adress GetAdress(string nameUniv)
+        {
+           return( from DBAdress adr in dbAd
+            where GetUniversityIDForAdress(nameUniv) == (adr.AdressID).ToString()            
+             select new Adress(adr.CityAdr, adr.StreetAdr, adr.BuildingAdr)).First();
+        }
+
+        private Adress GetAdressesByID(int ID)
         {
             return (from adr in dbAd
-                                  where adr.AdressID == ID
-                                  select adr).First();
+                    where adr.AdressID == ID
+                    select new Adress(adr.CityAdr, adr.StreetAdr, adr.BuildingAdr)).First();
         }
 
         public List<Student> GetStudents()
         {
-            List<Student> students = new List<Student>();
-            foreach (DBStudent stud in dbSt)
-            {
-                students.Add(converter.Convert(stud));
-            }
+            List<Student> students = new List<Student>(
+                from dbStudent in dbSt
+                select new Student(dbStudent.FirstName, dbStudent.SecondName, int.Parse(dbStudent.YearOfBirth),
+                    dbStudent.Departament, dbStudent.Marks));
+
             students.Sort(new StudentComparer());
-            
+
             return students;
         }
 
-        private List<DBStudent> GetStudentsByFacultyID(string ID)
+        private List<Student> GetStudentsByFacultyID(string ID)
         {
-             return new List<DBStudent> (from stud in dbSt
-                                where stud.FacultyID == ID
-                                select stud);
+            return (from dbStudent in dbSt
+                    where dbStudent.FacultyID == ID
+                    select new Student(dbStudent.FirstName, dbStudent.SecondName, int.Parse(dbStudent.YearOfBirth),
+             dbStudent.Departament, dbStudent.Marks)).ToList();
         }
 
-        public void SaveStudent(Student student, string facultID)
-        {
-            dbSt.Add(converter.Convert(student, facultID));
-            using (FileStream streamer = new FileStream(filesLocationPrefix + studentsFilename, FileMode.Open))
-            {
-                XmlSerializer ser = new XmlSerializer(typeof(List<DBStudent>), new XmlRootAttribute("students"));
-                ser.Serialize(streamer, dbSt);
-            }
-            
-        }
+        //public void SaveStudent(Student student, string facultID)
+        //{
+        //    dbSt.Add(new DBStudent() {Departament=student.Departament }, facultID);
+        //    using (FileStream streamer = new FileStream(filesLocationPrefix + studentsFilename, FileMode.Open))
+        //    {
+        //        XmlSerializer ser = new XmlSerializer(typeof(List<DBStudent>), new XmlRootAttribute("students"));
+        //        ser.Serialize(streamer, dbSt);
+        //    }
+
+        //}
 
 
 
         public List<Dekan> GetDekans()
         {
-            
-            List<Dekan> dekans = new List<Dekan>();
-            
-            foreach (DBDekan dek in dbDek)
-            {
-                dekans.Add(converter.Convert(dek));
-            }
-
-            return dekans;
+            return (from dbDekan in dbDek
+                    select new Dekan(dbDekan.FirstName, dbDekan.SecondName, dbDekan.YearOfBirth, dbDekan.Departament, 
+                    dbDekan.Degree)).ToList();
         }
 
-        public DBDekan GetDekanByFacultyID(int ID)
+        public Dekan GetDekanByFacultyID(int ID)
         {
-            
-           
-               return (from dek in dbDek
-                                  where dek.FacultyID == ID
-                                  select dek).First();
+
+
+            return (from dbDekan in dbDek
+                    where dbDekan.FacultyID == ID
+                    select new Dekan(dbDekan.FirstName, dbDekan.SecondName, dbDekan.YearOfBirth, dbDekan.Departament,
+                    dbDekan.Degree)).First();
         }
 
-        public List<Faculty> GetFaculties()
+        private List<Faculty> GetFaculties()
         {
-           
+
             List<Faculty> faculties = new List<Faculty>();
 
             foreach (DBFaculty facult in dbFc)
             {
-                Faculty faculty = new Faculty(facult.NameDepartament, converter.Convert(GetAdressesByID(facult.AdressID)),
-                    facult.UniversityName, converter.Convert(GetDekanByFacultyID(facult.FacultyID)));
-                
-                foreach (DBStudent st in GetStudentsByFacultyID(facult.FacultyID.ToString()))
+                Faculty faculty = new Faculty(facult.NameDepartament, GetAdressesByID(facult.AdressID),
+                    facult.UniversityName, GetDekanByFacultyID(facult.FacultyID));
+
+                foreach (Student st in GetStudentsByFacultyID(facult.FacultyID.ToString()))
                 {
-                    faculty.AddStudent(converter.Convert(st));
+                    faculty.AddStudent(st);
                 }
 
                 faculties.Add(faculty);
@@ -214,7 +222,29 @@ namespace University
             return faculties;
         }
 
-        public List <DBFaculty> GetFacultiesByUniversityID(int ID)
+        public List<Faculty> GetFaculties(string nameUniversity)
+        {
+            
+            List<Faculty> faculties = new List<Faculty>();
+              
+
+            foreach (DBFaculty facult in GetFacultiesByUniversityID(int.Parse(GetUniversityID(nameUniversity))))
+            {   
+                Faculty faculty = new Faculty(facult.NameDepartament, GetAdressesByID(facult.AdressID),
+                    facult.UniversityName, GetDekanByFacultyID(facult.FacultyID));
+
+                foreach (Student st in GetStudentsByFacultyID(facult.FacultyID.ToString()))
+                {
+                    faculty.AddStudent(st);
+                }
+
+                faculties.Add(faculty);
+            }
+
+            return faculties;
+        }
+
+         public List<DBFaculty> GetFacultiesByUniversityID(int ID)
         {
 
             return (from fac in dbFc
@@ -229,15 +259,17 @@ namespace University
 
             foreach (DBUniversity univ in dbUn)
             {
-                
-                University university = new University(univ.NameUniversity, converter.Convert(GetAdressesByID(int.Parse(univ.AdressID))));
+
+                University university = new University(univ.NameUniversity, GetAdressesByID(int.Parse(univ.AdressID)));
 
                 foreach (DBFaculty fc in GetFacultiesByUniversityID(int.Parse(univ.UnID)))
-                {   Adress adress = converter.Convert(GetAdressesByID(fc.AdressID));
-                    Faculty fac = converter.Convert(fc, adress, converter.Convert(GetDekanByFacultyID(fc.FacultyID)));
-                    foreach (DBStudent st in GetStudentsByFacultyID(fc.FacultyID.ToString()))
+                {
+                    Faculty fac = new Faculty(fc.NameDepartament, GetAdressesByID(fc.AdressID),
+                        fc.UniversityName, GetDekanByFacultyID(fc.FacultyID));
+
+                    foreach (Student st in GetStudentsByFacultyID(fc.FacultyID.ToString()))
                     {
-                        fac.AddStudent(converter.Convert(st));
+                        fac.AddStudent(st);
                     }
                     university.AddDepartament(fac);
                 }
@@ -248,58 +280,34 @@ namespace University
             return universities;
         }
 
-        //public List<Garage> GetGarages()
+        //public University GetUniversity(string nameUniv)
         //{
-        //    List<Dictionary<string, string>> parsedGarages = ReadFromXml(garagesFilename, "garage", new List<string> { "square", "number", "adressID" });
-        //    List<Garage> garages = new List<Garage>();
-
-        //    foreach (Dictionary<string, string> garageValues in parsedGarages)
-        //    {
-        //        Adress adr = this.GetAdressesByID(garageValues["adressID"]);
-        //        garages.Add(new Garage(adr, float.Parse(garageValues["square"]), int.Parse(garageValues["number"])));
-        //    }
-
-        //    return garages;
+            
         //}
 
-        //public List<Car> GetCars()
+        //public List<University> GetUniversitisLinq()
         //{
-        //    List<Dictionary<string, string>> parsedCars = ReadFromXml(carsFilename, "car", new List<string> { "name", "year", "fuel" });
-        //    List<Car> cars = new List<Car>();
+        //    List<University> universities = new List<University>();
 
-        //    foreach (Dictionary<string, string> carValues in parsedCars)
-        //    {
-        //        cars.Add(new Car(carValues["name"], int.Parse(carValues["year"]), carValues["fuel"]));
-        //    }
+        //    return (from univ in dbUn
+        //            join dbAdr in dbAd on int.Parse(univ.AdressID) equals dbAdr.AdressID
+        //            let uniAdr = new Adress(dbAdr.CityAdr, dbAdr.StreetAdr, dbAdr.BuildingAdr)
+        //            join fac in dbFc on int.Parse(univ.UnID) equals fac.UniversityID into uniFaculties
+        //            let 
+        //            join facAdr in dbAd on 
 
-        //    return cars;
+        //            select 
+        //            ).ToList();
+
+        //    return (from adr in dbAd
+        //            where adr.AdressID == ID
+        //            select new Adress(adr.CityAdr, adr.StreetAdr, adr.BuildingAdr)).First();
+
         //}
 
-        //public List<Head> GetHeads()
-        //{
-        //    List<Dictionary<string, string>> parsedHeads = ReadFromXml(headsFilename, "head", new List<string> { "firstName", "secondName", "yearOfBirth", "degree", "faculty" });
-        //    List<Head> heads = new List<Head>();
 
-        //    foreach (Dictionary<string, string> headValues in parsedHeads)
-        //    {
-        //        heads.Add(new Head(headValues["firstName"], headValues["secondName"], int.Parse(headValues["yearOfBirth"]), headValues["faculty"], headValues["degree"]));
-        //    }
 
-        //    return heads;
-        //}
 
-        //public Dekan GetDekanByID(string ID)
-        //{
-        //    List<Dictionary<string, string>> parsedDekans = ReadFromXml(dekansFilename, "dekan", new List<string> { "firstName", "secondName", "yearOfBirth", "degree", "faculty", "facultID" });
-
-        //    foreach (Dictionary<string, string> dekanValues in parsedDekans)
-        //    {
-        //        if (ID.Equals(dekanValues["facultID"]))
-        //            return new Dekan(dekanValues["firstName"], dekanValues["secondName"], int.Parse(dekanValues["yearOfBirth"]), dekanValues["faculty"], dekanValues["degree"]);
-        //    }
-
-        //    return null;
-        //}
 
 
 

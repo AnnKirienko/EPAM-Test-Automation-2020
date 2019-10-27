@@ -13,23 +13,49 @@ namespace University
             UniversityCreator creator = new UniversityCreator();
            // University university = ;
             IDBProvider provider = new XmlDBProvider();
-            // IDBProvider jsprovider = new JSONDBProvider();
-            foreach (University univ in creator.GetUniversities())
-                    Console.WriteLine(univ);
-                
+            JSONDBProvider jsprovider = new JSONDBProvider();
+
+           University univer = creator.CreateUniversity("BSU");
+            Console.WriteLine(univer);
+            Console.WriteLine("\n________________________________________");
+
+            jsprovider.SaveUniversitiesToJSONFile(new List<University>{ univer });
+            foreach (University univ in jsprovider.GetUniversitiesFromJSONFile())
+            {
+                Console.WriteLine(univ);
+            }
+
+
+
+            //foreach (University univ in creator.GetUniversities())
+            //{
+            //    var dpts = univ.GetDepartments();
+            //    foreach (var dpt in dpts)
+            //    {
+            //        if (dpt is Faculty)
+            //        {
+            //            (dpt as Faculty).AddStudent(new Student("aaaaaaaaaaaa", "bbbb", 354, "zxcvbnm", new List<int>()));
+            //        }
+            //    }
+
+            //}
+
             //jsprovider.GetStudents();
 
-            //foreach (Faculty facult in provider.GetFaculties())
-            //    Console.WriteLine(facult);
+
 
 
             //foreach (Student stud in jsprovider.GetStudents())
             //   Console.WriteLine(stud);
 
-            // Console.WriteLine(new StreamReader("..\\..\\Resources\\Students.xml", Encoding.Unicode).ReadToEnd());
+            // Console.WriteLine(new StreamReader("..\\..\\Resources\\Students.xml", Encoding.UTF8).ReadToEnd());
             //provider.SaveStudent(new Student("tgrfw", "tegtgwfgh", 852, "qwertyuiop", new List<int>()),"1");
+            //foreach (Faculty facult in provider.GetFaculties())
+            // Console.WriteLine(facult);
 
-            Console.WriteLine();
+
+
+
 
 
 

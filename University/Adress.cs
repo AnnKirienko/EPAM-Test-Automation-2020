@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace University
 {
-   public class Adress
+    public class Adress
     {
         string cityAdr;
         string streetAdr;
@@ -14,9 +15,12 @@ namespace University
            streetAdr = sA;
            buildingAdr = bA;
        }
-    
 
-       public override string ToString()
+        public string CityAdr { get => cityAdr; set => cityAdr = value; }
+        public string StreetAdr { get => streetAdr; set => streetAdr = value; }
+        public string BuildingAdr { get => buildingAdr; set => buildingAdr = value; }
+
+        public override string ToString()
        {
            return this.cityAdr + ", " + this.streetAdr + ", " + this.buildingAdr;
        }

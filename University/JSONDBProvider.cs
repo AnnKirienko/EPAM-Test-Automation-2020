@@ -10,41 +10,34 @@ using System.Data;
 
 namespace University
 {
-    public class JSONDBProvider: IDBProvider
+    public class JSONDBProvider : IDBProvider
     {
         const string studentsFilename = "Students.json";
-       // const string universitiesFilename = "Universities.xml";
+        const string universitiesFilename = "Universities.json";
         const string filesLocationPrefix = "..\\..\\Resources\\JSON\\";
 
-        private ObjectConverter converter = new ObjectConverter();
+        JsonSerializerSettings settings = new JsonSerializerSettings
+        {
+            TypeNameHandling = TypeNameHandling.All
+        };
 
         public JSONDBProvider()
-        { dbSt = LoadStudents(); }
+        { }
 
-        private List<DBStudent> LoadStudents()
+        public void SaveUniversitiesToJSONFile(List<University> universities)
         {
-            using (StreamReader reader = new StreamReader(filesLocationPrefix + studentsFilename, Encoding.Unicode))
-            {
-            //    DataSet dataSet = JsonConvert.DeserializeObject<DataSet>(json);
-
-            //    DataTable dataTable = dataSet.Tables["student"];
-
-            //    Console.WriteLine(dataTable.Rows.Count);
-            //    // 2
-
-                //foreach (DataRow row in dataTable.Rows)
-                //{
-                //    Console.WriteLine(row["id"] + " - " + row["item"]);
-                //}
-                //// 0 - item 0
-                //// 1 - item 1
-
-                return new List <DBStudent> (JsonConvert.DeserializeObject<IEnumerable<DBStudent>>(reader.ReadToEnd()));
-                
-                //return JsonConvert.DeserializeObject<>();
-                //return JsonConvert.DeserializeObject<List<DBStudent>>(reader.ReadToEnd());
-            }
+            File.WriteAllText(filesLocationPrefix + universitiesFilename, JsonConvert.SerializeObject(universities, settings));
         }
+
+        public List<University> GetUniversitiesFromJSONFile()
+          {
+            using(StreamReader reader = new StreamReader(filesLocationPrefix + universitiesFilename, Encoding.UTF8))
+            {
+             return new List<University>(JsonConvert.DeserializeObject<IEnumerable<University>>(reader.ReadToEnd(), settings));
+            }
+           }
+
+        
 
         List<DBStudent> dbSt = new List<DBStudent>();
 
@@ -58,30 +51,32 @@ namespace University
             throw new NotImplementedException();
         }
 
-        public List<Faculty> GetFaculties()
+        public List<Faculty> GetFaculties(string nameUniv)
         {
             throw new NotImplementedException();
         }
 
         public List<Student> GetStudents()
         {
-            List<Student> students = new List<Student>();
-            foreach (DBStudent stud in dbSt)
-            {
-                students.Add(converter.Convert(stud));
-            }
-            students.Sort(new StudentComparer());
+            //List<Student> students = new List<Student>();
+            //foreach (DBStudent stud in dbSt)
+            //{
+            //    students.Add(converter.Convert(stud));
+            //}
+            //students.Sort(new StudentComparer());
 
-            return students;
+            return null;
             
         }
 
-        public void SaveStudent(Student student, string facultID)
+       
+
+        public List<University> GetUniversities()
         {
             throw new NotImplementedException();
         }
 
-        public List<University> GetUniversities()
+        public Adress GetAdress(string nameUniversity)
         {
             throw new NotImplementedException();
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace University
 {
@@ -10,6 +11,8 @@ namespace University
         {
             degree = degr;
         }
+
+        public string Degree { get => degree; set => degree = value; }
 
         public override string ToString()
         {
