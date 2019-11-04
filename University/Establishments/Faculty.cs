@@ -8,7 +8,6 @@ namespace University
     public class Faculty : Departament
     {
         Dekan dekan;
-        //Student [] arrayStudents = new Student[2];
         List<Student> listStudents  = new List<Student> ();
 
         public Dekan Dekan { get => dekan; set => dekan = value; }
@@ -26,8 +25,6 @@ namespace University
         public Faculty()
         { }
 
-        
-
         public override string ToString()
         {
             string studentStr = "";
@@ -36,8 +33,6 @@ namespace University
 
             return base.ToString() + " " + dekan + " " + studentStr;
         }
-
-        
 
         bool CanBeAdded(Student student)
         {
@@ -51,7 +46,6 @@ namespace University
             }
             return true;
         }
-
         public bool AddStudent(Student student)
         {
             if ((listStudents.Count < 2) && this.CanBeAdded(student))
@@ -64,11 +58,7 @@ namespace University
             }
             return false;
 
-            
-
         }
-
-
 
     }
 }

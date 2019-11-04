@@ -1,12 +1,10 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.IO;
-using System.Data;
-
-
+using Newtonsoft.Json;
 
 namespace University
 {
@@ -21,8 +19,7 @@ namespace University
             TypeNameHandling = TypeNameHandling.All
         };
 
-        public JSONDBProvider()
-        { }
+        public JSONDBProvider() { }
 
         public void SaveUniversitiesToJSONFile(List<University> universities)
         {
@@ -30,14 +27,12 @@ namespace University
         }
 
         public List<University> GetUniversitiesFromJSONFile()
-          {
+        {
             using(StreamReader reader = new StreamReader(filesLocationPrefix + universitiesFilename, Encoding.UTF8))
             {
-             return new List<University>(JsonConvert.DeserializeObject<IEnumerable<University>>(reader.ReadToEnd(), settings));
+                return new List<University>(JsonConvert.DeserializeObject<IEnumerable<University>>(reader.ReadToEnd(), settings));
             }
-           }
-
-        
+        }
 
         List<DBStudent> dbSt = new List<DBStudent>();
 
@@ -51,6 +46,11 @@ namespace University
             throw new NotImplementedException();
         }
 
+        public Rector GetRector(string nameUniversity)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Faculty> GetFaculties(string nameUniv)
         {
             throw new NotImplementedException();
@@ -58,18 +58,8 @@ namespace University
 
         public List<Student> GetStudents()
         {
-            //List<Student> students = new List<Student>();
-            //foreach (DBStudent stud in dbSt)
-            //{
-            //    students.Add(converter.Convert(stud));
-            //}
-            //students.Sort(new StudentComparer());
-
             return null;
-            
         }
-
-       
 
         public List<University> GetUniversities()
         {
@@ -77,6 +67,16 @@ namespace University
         }
 
         public Adress GetAdress(string nameUniversity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SaveStudent(Student student, string facultID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SaveUniversity(University university)
         {
             throw new NotImplementedException();
         }

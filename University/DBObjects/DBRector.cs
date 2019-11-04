@@ -6,8 +6,8 @@ using System.Xml.Serialization;
 
 namespace University
 {
-    [XmlType("dekan")]
-    public class DBDekan
+    [XmlType("rector")]
+    public class DBRector
     {
         [XmlElement("firstName")]
         public string FirstName { get; set; }
@@ -15,16 +15,13 @@ namespace University
         [XmlElement("secondName")]
         public string SecondName { get; set; }
 
-        [XmlElement("departament")]
+        [XmlElement("university")]
         public string Departament { get; set; }
 
         [XmlElement("yearOfBirth")]
         public int YearOfBirth { get; set; }
 
-        [XmlElement("degree")]
-        public string Degree { get; set; }
-
-        [XmlElement("facultyID")]
-        public int FacultyID { get; set; }
+        [XmlElement("unID")]
+        public int UnID { get; set; }
     }
 }

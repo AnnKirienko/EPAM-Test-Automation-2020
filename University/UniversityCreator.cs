@@ -9,24 +9,18 @@ namespace University
     {
         IDBProvider prov = new XmlDBProvider();
 
-        //public List <University> GetUniversities()
-        //{
-
-        //    return prov.GetUniversities();
-        //}
-
         public University CreateUniversity(string nameUniversity)
         {
-            University university = new University(nameUniversity, prov.GetAdress(nameUniversity));
-            foreach (Faculty faculty in prov.GetFaculties(nameUniversity))
-                university.AddDepartament(faculty);
+            University university = new University(nameUniversity, prov.GetAdress(nameUniversity), prov.GetRector(nameUniversity));
+
+            prov.GetFaculties(nameUniversity).ForEach(fac => university.AddDepartament(fac));
 
             return university;
         }
 
         public void SaveUniversity(University university)
         {
-
+            prov.SaveUniversity(university);
         }
 
     }

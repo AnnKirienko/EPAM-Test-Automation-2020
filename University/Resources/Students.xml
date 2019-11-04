@@ -1,4 +1,5 @@
-<students>
+<?xml version="1.0" encoding="utf-8"?>
+<students xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <student>
     <firstName>Biba</firstName>
     <secondName>Pupkin</secondName>
@@ -10,14 +11,6 @@
   <student>
     <firstName>Boba</firstName>
     <secondName>Pupkin</secondName>
-    <faculty>FRFKT</faculty>
-    <yearOfBirth>20</yearOfBirth>
-    <marks>10 4 6</marks>
-    <facultID>2</facultID>
-  </student>
-  <student>
-    <firstName>Boba</firstName>
-    <secondName>Adupkin</secondName>
     <faculty>FRFKT</faculty>
     <yearOfBirth>20</yearOfBirth>
     <marks>10 4 6</marks>

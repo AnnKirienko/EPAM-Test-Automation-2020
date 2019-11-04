@@ -17,7 +17,6 @@ namespace University
            this.adress =  adress;
            this.nameDepartament = nameDepartament;
            this.universityName = universityName;
-
        }
 
         public string NameDepartament { get => nameDepartament; set => nameDepartament = value; }

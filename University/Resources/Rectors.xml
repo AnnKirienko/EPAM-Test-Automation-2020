@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rectors xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <rector>
+    <firstName>Korol</firstName>
+    <secondName>Andrey</secondName>
+    <university>BSU</university>
+    <yearOfBirth>43</yearOfBirth>
+    <unID>1</unID>
+  </rector>
+</rectors>

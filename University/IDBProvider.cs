@@ -5,55 +5,20 @@ using System.Text;
 
 namespace University
 {
-   interface IDBProvider
+    interface IDBProvider
     {
-        Adress GetAdress (string nameUniversity);
+        Adress GetAdress(string nameUniversity);
 
-     //   List<Departament> GetDepartaments();
-       
-         List<Faculty> GetFaculties(string nameUniversity);
-
-        //void SaveStudent(Student student, string facultID);
-
-
-       //  List<Autocade> GetAutocades();
-
-
-        //  List<Institute> GetInstitutes();
-
-        // List<Staff> GetStaffes();
-
-
-        //  List<Car> GetCars();
-
-        //  List<Garage> GetGarages();
-
-        //  List<Accountant> GetAccountants();
+        List<Faculty> GetFaculties(string nameUniversity);
 
         List<Dekan> GetDekans();
 
-         // List<Employee> GetEmployees();
+        Rector GetRector(string nameUniversity);
 
-         //List<Head> GetHeads();
-         //List<Manager> GetManagers();
-          List<Student> GetStudents();
+        List<Student> GetStudents();
 
-         List<University> GetUniversities();
-       
+        List<University> GetUniversities();
 
-//       //public List<> Get()
-//       //{}
-
-//       //public List<> Get()
-//       //{}
-
-//       //public List<> Get()
-//       //{}
-
-//       //public List<> Get()
-//       //{}
-
-
-
-}
+        void SaveUniversity(University university);
+    }
 }

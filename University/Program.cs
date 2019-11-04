@@ -11,21 +11,21 @@ namespace University
         static void Main(string[] args)
         {
             UniversityCreator creator = new UniversityCreator();
-           // University university = ;
-            IDBProvider provider = new XmlDBProvider();
             JSONDBProvider jsprovider = new JSONDBProvider();
 
-           University univer = creator.CreateUniversity("BSU");
+            University univer = creator.CreateUniversity("BSU");
             Console.WriteLine(univer);
             Console.WriteLine("\n________________________________________");
 
-            jsprovider.SaveUniversitiesToJSONFile(new List<University>{ univer });
+            jsprovider.SaveUniversitiesToJSONFile(new List<University> { univer });
             foreach (University univ in jsprovider.GetUniversitiesFromJSONFile())
             {
                 Console.WriteLine(univ);
             }
 
-
+            creator.SaveUniversity(univer);
+            Console.WriteLine("#####");
+            Console.WriteLine(creator.CreateUniversity("BSU"));
 
             //foreach (University univ in creator.GetUniversities())
             //{
@@ -42,9 +42,6 @@ namespace University
 
             //jsprovider.GetStudents();
 
-
-
-
             //foreach (Student stud in jsprovider.GetStudents())
             //   Console.WriteLine(stud);
 
@@ -52,13 +49,6 @@ namespace University
             //provider.SaveStudent(new Student("tgrfw", "tegtgwfgh", 852, "qwertyuiop", new List<int>()),"1");
             //foreach (Faculty facult in provider.GetFaculties())
             // Console.WriteLine(facult);
-
-
-
-
-
-
-
 
         }
     }

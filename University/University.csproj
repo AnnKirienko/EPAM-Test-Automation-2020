@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" DefaultTargets="Build" 
+  xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
@@ -59,6 +60,7 @@
     <Compile Include="DBObjects\DBHead.cs" />
     <Compile Include="DBObjects\DBInstitute.cs" />
     <Compile Include="DBObjects\DBManager.cs" />
+    <Compile Include="DBObjects\DBRector.cs" />
     <Compile Include="DBObjects\DBStaff.cs" />
     <Compile Include="DBObjects\DBStudent.cs" />
     <Compile Include="DBObjects\DBUniversity.cs" />
@@ -70,6 +72,7 @@
     <Compile Include="Establishments\Staff.cs" />
     <Compile Include="Garage.cs" />
     <Compile Include="JSONDBProvider.cs" />
+    <Compile Include="Persons\Rector.cs" />
     <Compile Include="StudentComparer.cs" />
     <Compile Include="UniversityCreator.cs" />
     <Compile Include="Persons\Accountant.cs" />
@@ -100,6 +103,7 @@
     <Content Include="Resources\Heads.xml" />
     <Content Include="Resources\Institutes.xml" />
     <Content Include="Resources\Managers.xml" />
+    <Content Include="Resources\Rectors.xml" />
     <Content Include="Resources\Staffes.xml" />
     <Content Include="Resources\Students.xml" />
     <Content Include="Resources\Universities.xml" />

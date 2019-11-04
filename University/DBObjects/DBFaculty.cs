@@ -15,10 +15,12 @@ namespace University
         public int AdressID { get; set; }
         [XmlElement("name")]
         public string NameDepartament { get; set; }
+
         [XmlElement("universityName")]
         public string UniversityName { get; set; }
+
         [XmlElement("unID")]
         public int UniversityID { get; set; }
-       
+
     }
 }

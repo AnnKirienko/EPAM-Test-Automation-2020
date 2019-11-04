@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<adresses>
+<?xml version="1.0" encoding="utf-8"?>
+<adresses xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <adress>
     <cityAdr>Minsk</cityAdr>
     <streetAdr>Nezavisimosti</streetAdr>
@@ -23,47 +23,5 @@
     <streetAdr>Nezavisimosti</streetAdr>
     <buildingAdr>8</buildingAdr>
     <adressID>4</adressID>
-  </adress>
-  <adress>
-    <cityAdr>Minsk</cityAdr>
-    <streetAdr>Sovetskaya</streetAdr>
-    <buildingAdr>25</buildingAdr>
-    <adressID>6</adressID>
-  </adress>
-  <adress>
-    <cityAdr>Minsk</cityAdr>
-    <streetAdr>Nezavisimosti</streetAdr>
-    <buildingAdr>9</buildingAdr>
-    <adressID>7</adressID>
-  </adress>
-  <adress>
-    <cityAdr>Minsk</cityAdr>
-    <streetAdr>Druzhnaya</streetAdr>
-    <buildingAdr>54</buildingAdr>
-    <adressID>8</adressID>
-  </adress>
-  <adress>
-    <cityAdr>Minsk</cityAdr>
-    <streetAdr>Kovalevskoj</streetAdr>
-    <buildingAdr>96</buildingAdr>
-    <adressID>9</adressID>
-  </adress>
-  <adress>
-    <cityAdr>Minsk</cityAdr>
-    <streetAdr>Alibegova</streetAdr>
-    <buildingAdr>4</buildingAdr>
-    <adressID>10</adressID>
-  </adress>
-  <adress>
-    <cityAdr>Minsk</cityAdr>
-    <streetAdr>Kurchatova</streetAdr>
-    <buildingAdr>15</buildingAdr>
-    <adressID>11</adressID>
-  </adress>
-  <adress>
-    <cityAdr>Minsk</cityAdr>
-    <streetAdr>Nezavisimosti</streetAdr>
-    <buildingAdr>1</buildingAdr>
-    <adressID>12</adressID>
   </adress>
 </adresses>

@@ -1,25 +1,24 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<faculties>
+<?xml version="1.0" encoding="utf-8"?>
+<faculties xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <faculty>
+    <facultID>1</facultID>
+    <adressID>2</adressID>
     <name>BIO</name>
     <universityName>BSU</universityName>
-    <adressID>2</adressID>
     <unID>1</unID>
-    <facultID>1</facultID>
   </faculty>
   <faculty>
+    <facultID>2</facultID>
+    <adressID>3</adressID>
     <name>FRFKT</name>
     <universityName>BSU</universityName>
-    <adressID>3</adressID>
     <unID>1</unID>
-    <facultID>2</facultID>
   </faculty>
   <faculty>
+    <facultID>3</facultID>
+    <adressID>4</adressID>
     <name>MMF</name>
     <universityName>BSU</universityName>
-    <adressID>4</adressID>
     <unID>1</unID>
-    <facultID>3</facultID>
   </faculty>
-  
 </faculties>
