@@ -29,7 +29,7 @@ namespace University
         const string rectorsFilename = "Rectors.xml";
         const string filesLocationPrefix = "..\\..\\Resources\\";
 
-        private Dictionary<Type, int> dbObjectToMaxId = new Dictionary<Type, int>();
+        private Dictionary<Type, int> dbObjectToCurrentId = new Dictionary<Type, int>();
 
         List<DBStudent> dbSt = new List<DBStudent>();
         List<DBDekan> dbDek = new List<DBDekan>();
@@ -138,9 +138,9 @@ namespace University
 
         private int getNextId(Type type)
         {
-            int maxId = dbObjectToMaxId.TryGetValue(type, out var value) ? value : 0; 
+            int maxId = dbObjectToCurrentId.TryGetValue(type, out var value) ? value : 0; 
             maxId++;
-            dbObjectToMaxId[type] = maxId;
+            dbObjectToCurrentId[type] = maxId;
 
             return maxId;
         }
@@ -202,7 +202,7 @@ namespace University
                 return ad.BuildingAdr.Equals(adress.BuildingAdr) &&
                     ad.CityAdr.Equals(adress.CityAdr) &&
                     ad.StreetAdr.Equals(adress.StreetAdr);
-            }) ?? null;
+            }) ;
 
             if (existingAdr != null)
             {
