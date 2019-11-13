@@ -1,17 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Chess
 {
-   public class Cell
+    public class Cell
     {
-
         char column;
         int row;
-        
 
         public Cell(char column, int row)
         {
@@ -26,12 +20,12 @@ namespace Chess
 
         private int GetNumberIndexOfLetter()
         {
-            return (int)column - 65 + 1;
+            return column - 'A' + 1;
         }
 
         public string GetCellColour()
         {
-            if ((this.GetNumberIndexOfLetter() + this.row)%2 == 0 )
+            if ((this.GetNumberIndexOfLetter() + this.row) % 2 == 0)
             {
                 return "Black";
             }
@@ -53,7 +47,7 @@ namespace Chess
 
         public bool CanBeInOneDiagonalLine(Cell cell)
         {
-            return (Math.Abs(this.row - this.GetNumberIndexOfLetter())) == (Math.Abs(cell.row - cell.GetNumberIndexOfLetter() ));
+            return (Math.Abs(this.row - this.GetNumberIndexOfLetter())) == (Math.Abs(cell.row - cell.GetNumberIndexOfLetter()));
         }
 
 
