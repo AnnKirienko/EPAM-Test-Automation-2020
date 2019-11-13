@@ -11,7 +11,7 @@ namespace Chess
 
         char column;
         int row;
-        const int sizeOfBoard = 8;
+        
 
         public Cell(char column, int row)
         {
