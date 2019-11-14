@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<institutes>
+  <institute>
+  <name>Institute of Business</name>
+  <universityName>BSU</universityName>
+  <adressID>4</adressID>
+  <unID>1</unID>
+  <instID>1</instID>
+</institute>
+  <institute>
+    <name>Institute of Teology</name>
+    <universityName>BSU</universityName>
+    <adressID>5</adressID>
+    <unID>1</unID>
+    <instID>2</instID>
+  </institute>
+  <institute>
+    <name>Institute of Journalistic</name>
+    <universityName>BSU</universityName>
+    <adressID>6</adressID>
+    <unID>1</unID>
+    <instID>3</instID>
+  </institute>
+  </institutes>

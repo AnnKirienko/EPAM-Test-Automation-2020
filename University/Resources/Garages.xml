@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<garages>
+  <garage>
+    <square>10,5</square>
+    <number>1</number>
+    <adressID>11</adressID>
+    <autoID>1</autoID>
+  </garage>
+  <garage>
+    <square>42,6</square>
+    <number>2</number>
+    <adressID>12</adressID>
+    <autoID>1</autoID>
+  </garage>
+</garages>

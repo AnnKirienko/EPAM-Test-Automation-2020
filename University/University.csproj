@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" 
+  xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{123DB045-69DE-45D9-AA81-6E22ADBE7099}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>ConsoleApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>University</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.12.0.2\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Adress.cs" />
+    <Compile Include="Car.cs" />
+    <Compile Include="DBObjects\DBAccountant.cs" />
+    <Compile Include="DBObjects\DBAdress.cs" />
+    <Compile Include="DBObjects\DBAutocade.cs" />
+    <Compile Include="DBObjects\DBCar.cs" />
+    <Compile Include="DBObjects\DBDekan.cs" />
+    <Compile Include="DBObjects\DBEmployee.cs" />
+    <Compile Include="DBObjects\DBFaculty.cs" />
+    <Compile Include="DBObjects\DBGarage.cs" />
+    <Compile Include="DBObjects\DBHead.cs" />
+    <Compile Include="DBObjects\DBInstitute.cs" />
+    <Compile Include="DBObjects\DBManager.cs" />
+    <Compile Include="DBObjects\DBRector.cs" />
+    <Compile Include="DBObjects\DBStaff.cs" />
+    <Compile Include="DBObjects\DBStudent.cs" />
+    <Compile Include="DBObjects\DBUniversity.cs" />
+    <Compile Include="IDBProvider.cs" />
+    <Compile Include="Establishments\Autocade.cs" />
+    <Compile Include="Establishments\Departament.cs" />
+    <Compile Include="Establishments\Faculty.cs" />
+    <Compile Include="Establishments\Institute.cs" />
+    <Compile Include="Establishments\Staff.cs" />
+    <Compile Include="Garage.cs" />
+    <Compile Include="JSONDBProvider.cs" />
+    <Compile Include="Persons\Rector.cs" />
+    <Compile Include="StudentComparer.cs" />
+    <Compile Include="UniversityCreator.cs" />
+    <Compile Include="Persons\Accountant.cs" />
+    <Compile Include="Persons\Dekan.cs" />
+    <Compile Include="Persons\Employee.cs" />
+    <Compile Include="Persons\Head.cs" />
+    <Compile Include="Persons\Manager.cs" />
+    <Compile Include="Persons\Person.cs" />
+    <Compile Include="Persons\Student.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="University.cs" />
+    <Compile Include="XmlDBProvider.cs" />
+    <Compile Include="XmlReader.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Accountants.xml" />
+    <Content Include="Resources\Adress.xml" />
+    <Content Include="Resources\Autocades.xml" />
+    <Content Include="Resources\Cars.xml" />
+    <Content Include="Resources\Dekans.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\Employees.xml" />
+    <Content Include="Resources\Faculties.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\Garages.xml" />
+    <Content Include="Resources\Heads.xml" />
+    <Content Include="Resources\Institutes.xml" />
+    <Content Include="Resources\Managers.xml" />
+    <Content Include="Resources\Rectors.xml" />
+    <Content Include="Resources\Staffes.xml" />
+    <Content Include="Resources\Students.xml" />
+    <Content Include="Resources\Universities.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Resources\JSON\Students.json" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
+  <ProjectExtensions>
+    <VisualStudio AllowExistingFolder="true" />
+  </ProjectExtensions>
+</Project>

@@ -1,0 +1,28 @@
+﻿{
+  "student":  [
+      {
+        "firstName": "Biba",
+        "secondName": "Pupkin",
+        "faculty": "FRFKT",
+        "yearOfBirth": "20",
+        "marks": "4 4 5",
+        "facultID": "2"
+      },
+      {
+        "firstName": "Boba",
+        "secondName": "Pupkin",
+        "faculty": "FRFKT",
+        "yearOfBirth": "20",
+        "marks": "10 4 6",
+        "facultID": "2"
+      },
+      {
+        "firstName": "Boba",
+        "secondName": "Adupkin",
+        "faculty": "FRFKT",
+        "yearOfBirth": "20",
+        "marks": "10 4 6",
+        "facultID": "2"
+      }
+    ]
+}

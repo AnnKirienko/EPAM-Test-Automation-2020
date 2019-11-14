@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<universities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <university>
+    <name>BSU</name>
+    <unID>1</unID>
+    <adressID>1</adressID>
+  </university>
+</universities>

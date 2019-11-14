@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<adresses xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <adress>
+    <cityAdr>Minsk</cityAdr>
+    <streetAdr>Nezavisimosti</streetAdr>
+    <buildingAdr>6</buildingAdr>
+    <adressID>1</adressID>
+  </adress>
+  <adress>
+    <cityAdr>Minsk</cityAdr>
+    <streetAdr>K. Marksa</streetAdr>
+    <buildingAdr>13</buildingAdr>
+    <adressID>2</adressID>
+  </adress>
+  <adress>
+    <cityAdr>Minsk</cityAdr>
+    <streetAdr>Kurchatova</streetAdr>
+    <buildingAdr>5</buildingAdr>
+    <adressID>3</adressID>
+  </adress>
+  <adress>
+    <cityAdr>Minsk</cityAdr>
+    <streetAdr>Nezavisimosti</streetAdr>
+    <buildingAdr>8</buildingAdr>
+    <adressID>4</adressID>
+  </adress>
+</adresses>

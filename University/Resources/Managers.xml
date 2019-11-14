@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<managers>
+  <manager>
+    <firstName>Ivanenko</firstName>
+    <secondName>Dmitry</secondName>
+    <yearOfBirth>39</yearOfBirth>
+    <roomNumber>56</roomNumber>
+    <departament>Institute of Business</departament>
+    <instID>1</instID>
+  </manager>
+  <manager>
+    <firstName>Tregyb</firstName>
+    <secondName>Alexey</secondName>
+    <yearOfBirth>48</yearOfBirth>
+    <roomNumber>112</roomNumber>
+    <departament>Institute of Teology</departament>
+    <instID>2</instID>
+  </manager>
+  <manager>
+    <firstName>Astapenko</firstName>
+    <secondName>Alla</secondName>
+    <yearOfBirth>44</yearOfBirth>
+    <roomNumber>1589</roomNumber>
+    <departament>Institute of Journalistic</departament>
+    <instID>3</instID>
+  </manager>
+</managers>

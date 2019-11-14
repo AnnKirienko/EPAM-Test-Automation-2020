@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<employees>
+  <employee>
+    <firstName>Toni</firstName>
+    <secondName>Stark</secondName>
+    <yearOfBirth>48</yearOfBirth>
+    <salary>100500</salary>
+    <departament>Institute of Business</departament>
+    <instID>1</instID>
+  </employee>
+  <employee>
+    <firstName>Tom</firstName>
+    <secondName>Holland</secondName>
+    <yearOfBirth>23</yearOfBirth>
+    <salary>8900</salary>
+    <departament>Institute of Business</departament>
+    <instID>1</instID>
+  </employee>
+  <employee>
+    <firstName>Sherlock</firstName>
+    <secondName>Holms</secondName>
+    <yearOfBirth>43</yearOfBirth>
+    <salary>200500</salary>
+    <departament>Institute of Journalistic</departament>
+    <instID>3</instID>
+  </employee>
+  </employees>

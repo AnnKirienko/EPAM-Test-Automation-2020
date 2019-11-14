@@ -17,7 +17,6 @@ build/
 [Bb]in/
 [Oo]bj/
 AssemblyInfo*
-
 # Enable "build/" folder in the NuGet Packages folder since NuGet packages use it for MSBuild targets
 !packages/*/build/
 
@@ -156,4 +155,8 @@ Desktop.ini
 $RECYCLE.BIN/
 
 # Mac desktop service store files
+<<<<<<< HEAD
 .DS_Store
+=======
+.DS_Store
+>>>>>>> University
