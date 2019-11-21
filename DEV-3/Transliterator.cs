@@ -12,7 +12,8 @@ namespace DEV_3
         Dictionary<string, string> enRuMappingMultiple;
 
         Regex validStringRegex = new Regex(@"^[\p{L}\s]+$");
-
+        Regex containsRussianLettersRegex = new Regex(@"[а-яА-Я]+");
+        Regex containsEnglishLettersRegex = new Regex(@"[a-zA-Z]+");
         public Transliterator()
         {
             ruEnMapping = new Dictionary<string, string>()
@@ -137,11 +138,15 @@ namespace DEV_3
             return c >= 'a' && c <= 'z';
         }
 
-        private bool IsValidString(string str)
+        private bool ContainsRussianAndEnglishCharacters(string str)
         {
-            return validStringRegex.IsMatch(str);
+            return containsRussianLettersRegex.IsMatch(str) && containsEnglishLettersRegex.IsMatch(str);
         }
 
-
+        private bool IsValidString(string str)
+        {
+            return !ContainsRussianAndEnglishCharacters(str) && validStringRegex.IsMatch(str);
+        }
+        
     }
 }
