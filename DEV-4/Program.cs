@@ -21,7 +21,7 @@ namespace DEV_4
             options.AddArgument("--log-level=3");
             using (IWebDriver driver = new ChromeDriver(options))
             {
-                WebDriverWait driverWait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+                WebDriverWait driverWait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
 
                 driver.Navigate().GoToUrl("https://mail.ru/");
 
