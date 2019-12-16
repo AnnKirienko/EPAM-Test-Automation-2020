@@ -8,85 +8,96 @@ namespace Calculator
 {
     public class CalculatorPage
     {
-        const string one = "#nmr_19 > table > tbody > tr > td";
-        const string two = "#nmr_20 > table > tbody > tr > td";
-        const string three= "#nmr_21 > table > tbody > tr > td";
-        const string four = "#nmr_13 > table > tbody > tr > td";
-        const string five = "#nmr_14 > table > tbody > tr > td";
-        const string six = "#nmr_15 > table > tbody > tr > td";
-        const string seven = "#nmr_7 > table > tbody > tr > td";
-        const string eight = "#nmr_8 > table > tbody > tr > td";
-        const string nine = "#nmr_9 > table > tbody > tr > td";
-        const string zero = "#nmr_25 > table > tbody > tr > td";
-        const string plus = "#nmr_22 > table > tbody > tr > td";
-        const string minus = "";
-        const string doubleZero = "#nmr_26 > table > tbody > tr > td";
-        const string point = "#nmr_27 > table > tbody > tr > td";
-        const string = "";
-        const string = "";
-        const string = "";
-        const string = "";
-        const string = "";
-        const string = "";
-        const string = "";
-        const string = "";
-        const string = "";
-        const string = "";
-        const string = "";
-        const string = "";
-        const string = "";
-        const string = "";
-        const string = "";
-        public void LoadPage()
-        {
-            ChromeOptions options = new ChromeOptions();
-            options.AddArgument("--log-level=3");
-            IWebDriver driver = new ChromeDriver(options);
-            
-                WebDriverWait driverWait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
+        const string calculatorPageUrl = "http://calkulyator.ru/";
+        readonly Dictionary<char, string> buttonNameToSelector = new Dictionary<char, string>
+        { { '1', "#nmr_19 > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1)" },
+            { '2', "#nmr_20 > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1)" },
+            { '3', "#nmr_21 > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1)" },
+            { '4', "#nmr_13 > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1)" },
+            { '5', "#nmr_14 > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1)" },
+            { '6', "#nmr_15 > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1)" },
+            { '7', "#nmr_7 > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1)" },
+            { '8', "#nmr_8 > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1)" },
+            { '9', "#nmr_9 > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1)" },
+            { '0', "#nmr_25 > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1)" },
+            { '.', "#nmr_27 > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1)" },
+            { '+', "#nmr_22 > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1)" },
+            { '-', "#nmr_17 > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1)" },
+            { '*', "#nmr_16 > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1)" },
+            { '=', "#nmr_23 > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1)" },
+            { '%', "#nmr_11 > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1)" }
+        };
 
-                driver.Navigate().GoToUrl("http://calkulyator.ru/");
-            
+        const string resultSelector = "#display";
+        const string expressionAndResultSelector = "#disp-tekd";
+        IWebElement resultElement;
+        IWebElement expressionAndResultElement;
+
+        Dictionary<char, IWebElement> buttonNameToElement = new Dictionary<char, IWebElement>();
+
+        readonly IWebDriver driver;
+        readonly WebDriverWait driverWait;
+
+        public CalculatorPage(IWebDriver driver)
+        {
+            this.driver = driver;
+
+            driverWait = new WebDriverWait(driver, TimeSpan.FromSeconds(60));
         }
 
-        Dictionary<string, string> buttons = new Dictionary<string, string>
+        private void InitializeFields()
         {
-            {"1" ,one},
-            {"2", two},
-            {"3",three },
-            {"4",four },
-            {"5",five },
-            {"6",six},
-            {"7",seven },
-            {"8",eight },
-            {"9",nine },
-            {"0", zero },
-            {"+",plus },
-            {"-",minus },
-            {"*","" },
-            {"=","" },
-            {"00",doubleZero },
-            {".",point },
-            {"sqrt","" },
-            {"pow","" },
-            {"%","" },
-            {"/","" },
-            {"","" },
-            {"","" },
-            {"","" },
-            {"","" },
-            {"","" },
-            {"","" },
-            {"","" },
-            {"","" },
-            {"","" },
-            {"","" },
-            {"","" },
-            {"","" },
-            {"","" },
-            {"","" },
-        };
-        
-       
+            InitializeButtons();
+            InitializeResultFields();
+        }
+
+        private void InitializeResultFields()
+        {
+            resultElement = driver.FindElement(By.CssSelector(resultSelector));
+            expressionAndResultElement = driver.FindElement(By.CssSelector(expressionAndResultSelector));
+        }
+
+        private void InitializeButtons()
+        {
+            foreach (var item in buttonNameToSelector)
+            {
+                IWebElement button = driver.FindElement(By.CssSelector(item.Value));
+
+                buttonNameToElement[item.Key] = button;
+            }
+        }
+
+        public void ClickButtonByName(char buttonName)
+        {
+            IWebElement button = buttonNameToElement[buttonName];
+
+            button.Click();
+        }
+
+        public void ClickButtonByCssSelector(string selectorString)
+        {
+            By selector = By.CssSelector(selectorString);
+
+            driverWait.Until(d => d.FindElement(selector).Displayed);
+            IWebElement button = driver.FindElement(selector);
+
+            button.Click();
+        }
+
+        public string GetCurrentResult()
+        {
+            return resultElement.Text;
+        }
+        public string GetCurrentExpressionAndResult()
+        {
+            return expressionAndResultElement.Text;
+        }
+
+        public void LoadPage()
+        {
+            driver.Navigate().GoToUrl(calculatorPageUrl);
+            InitializeButtons();
+            InitializeResultFields();
+        }
     }
 }
