@@ -10,7 +10,7 @@ namespace Calculator
     {
         const string calculatorPageUrl = "http://calkulyator.ru/";
         readonly Dictionary<char, string> buttonNameToSelector = new Dictionary<char, string>
-        { { '1', "#nmr_19 > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1)" },
+        {   { '1', "#nmr_19 > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1)" },
             { '2', "#nmr_20 > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1)" },
             { '3', "#nmr_21 > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1)" },
             { '4', "#nmr_13 > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1)" },
@@ -25,7 +25,15 @@ namespace Calculator
             { '-', "#nmr_17 > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1)" },
             { '*', "#nmr_16 > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1)" },
             { '=', "#nmr_23 > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1)" },
-            { '%', "#nmr_11 > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1)" }
+            { '%', "#nmr_11 > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1)" } ,
+            { '/', "#nmr_10 > table > tbody > tr > td" },
+            //{ '', "" },
+            //{ '', "" },
+            //{ '', "" },
+            //{ '', "" },
+            //{ '', "" },
+            //{ '',"" },
+
         };
 
         const string resultSelector = "#display";

@@ -3,6 +3,7 @@
 namespace Calculator
 {
     using NUnit.Framework;
+
     using OpenQA.Selenium;
     using OpenQA.Selenium.Chrome;
 
@@ -20,9 +21,9 @@ namespace Calculator
 
                 TestInvoker invoker = new TestInvoker(calculatorPage);
 
-                Assert.AreEqual(invoker.GetResult("2+3"), 5);
-                Assert.AreEqual(invoker.GetResult("183*3+2"), 551);
-                Assert.AreEqual(invoker.GetResult("147/9"), 16.3333);
+                Assert.AreEqual(invoker.GetResult("2+3"), "5");
+                Assert.AreEqual(invoker.GetResult("183*3+2"), "551");
+                Assert.AreEqual(invoker.GetResult("147/9"), "16.3333");
             }
         }
     }
