@@ -1,0 +1,6 @@
+E:\Прога\TaskSh1\Chess\bin\Debug\Chess.exe.config
+E:\Прога\TaskSh1\Chess\bin\Debug\Chess.exe
+E:\Прога\TaskSh1\Chess\bin\Debug\Chess.pdb
+E:\Прога\TaskSh1\Chess\obj\Debug\Chess.csprojAssemblyReference.cache
+E:\Прога\TaskSh1\Chess\obj\Debug\Chess.exe
+E:\Прога\TaskSh1\Chess\obj\Debug\Chess.pdb
